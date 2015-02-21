@@ -1,18 +1,7 @@
 from pyramid.config import Configurator
-from pyramid.exceptions import NotFound
-from pyramid.response import Response
 from wsgiref.simple_server import make_server
 
-
-def home(request):
-    return Response('Exway!')
-
-
-def expenses(request):
-    if request.method == 'GET':
-        return Response('Nothing here yet!')
-
-    raise NotFound()
+from core.views import home, expenses
 
 
 if __name__ == '__main__':
