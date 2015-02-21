@@ -7,6 +7,8 @@ from core.views import home, expenses
 if __name__ == '__main__':
     config = Configurator()
 
+    config.include('pyramid_chameleon')
+
     config.add_route('home', '/')
     config.add_view(home, route_name='home')
     config.add_route('expenses', '/expenses')

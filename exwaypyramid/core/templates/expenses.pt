@@ -1,0 +1,11 @@
+<html>
+  <body>
+    <h1>Welcome, ${user}! Below are your expenses:</h1>
+    <ul tal:repeat="expense expenses">
+      <li>Date: ${expense.created}</li>
+      <li>Description: ${expense.description}</li>
+      <li>Amount: ${expense.amount}</li>
+      <li>Comment: ${expense.comment}</li>
+    </ul>
+  </body>
+</html>

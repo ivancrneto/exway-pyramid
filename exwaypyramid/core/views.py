@@ -1,5 +1,7 @@
 from pyramid.exceptions import NotFound
+from pyramid.renderers import render
 from pyramid.response import Response
+import datetime
 
 
 def home(request):
@@ -8,6 +10,25 @@ def home(request):
 
 def expenses(request):
     if request.method == 'GET':
-        return Response('Nothing here yet!')
+        context = {
+            'user': 'John',
+            'expenses': [
+                {
+                    'created': datetime.datetime(2015, 2, 21, 10, 00),
+                    'description': 'Some dog food',
+                    'amount': 20.00,
+                    'comment': 'No comments'
+                },
+                {
+                    'created': datetime.datetime(2015, 2, 21, 12, 30),
+                    'description': 'My lunch',
+                    'amount': 40.00,
+                    'comment': 'It was delicious'
+                }
+            ]
+        }
+        rendered_content = render(
+            'core:templates/expenses.pt', context, request)
+        return Response(rendered_content)
 
     raise NotFound()
