@@ -1,16 +1,16 @@
 from pyramid.exceptions import NotFound
-from pyramid.renderers import render_to_response
-from pyramid.response import Response
 from pyramid.view import view_config
 import datetime
 
 
-@view_config(route_name='core:views.home')
+@view_config(route_name='core:views.home', renderer='string')
 def home(request):
-    return Response('Exway!')
+    return 'Exway!'
 
 
-@view_config(route_name='core:views.expenses')
+@view_config(
+    route_name='core:views.expenses',
+    renderer='core:templates/expenses.jinja2')
 def expenses(request):
     if request.method == 'GET':
         context = {
@@ -30,7 +30,6 @@ def expenses(request):
                 }
             ]
         }
-        return render_to_response(
-            'core:templates/expenses.jinja2', context, request)
+        return context
 
     raise NotFound()
