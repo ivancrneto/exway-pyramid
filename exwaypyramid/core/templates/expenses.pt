@@ -1,6 +1,6 @@
 <html>
   <body>
-    <h1>Welcome, ${user}! Below are your expenses:</h1>
+    <h2>Welcome to Exway (Chameleon), ${user}! Below are your expenses:</h2>
     <ul tal:repeat="expense expenses">
       <li>Date: ${expense.created}</li>
       <li>Description: ${expense.description}</li>

@@ -1,0 +1,13 @@
+<html>
+  <body>
+    <h2>Welcome to Exway (Jinja), {{ user }}! Below are your expenses:</h2>
+    {% for expense in expenses %}
+    <ul>
+      <li>Date: {{ expense.created }}</li>
+      <li>Description: {{ expense.description }}</li>
+      <li>Amount: {{ expense.amount }}</li>
+      <li>Comment: {{ expense.comment }}</li>
+    </ul>
+    {% endfor %}
+  </body>
+</html>

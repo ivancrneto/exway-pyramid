@@ -8,6 +8,7 @@ if __name__ == '__main__':
     config = Configurator()
 
     config.include('pyramid_chameleon')
+    config.include('pyramid_jinja2')
 
     config.add_route('home', '/')
     config.add_view(home, route_name='home')

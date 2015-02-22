@@ -28,7 +28,7 @@ def expenses(request):
             ]
         }
         rendered_content = render(
-            'core:templates/expenses.pt', context, request)
+            'core:templates/expenses.jinja2', context, request)
         return Response(rendered_content)
 
     raise NotFound()
