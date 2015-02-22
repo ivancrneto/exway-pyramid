@@ -1,13 +1,16 @@
 from pyramid.exceptions import NotFound
 from pyramid.renderers import render_to_response
 from pyramid.response import Response
+from pyramid.view import view_config
 import datetime
 
 
+@view_config(route_name='core:views.home')
 def home(request):
     return Response('Exway!')
 
 
+@view_config(route_name='core:views.expenses')
 def expenses(request):
     if request.method == 'GET':
         context = {
