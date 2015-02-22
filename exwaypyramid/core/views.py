@@ -1,5 +1,5 @@
 from pyramid.exceptions import NotFound
-from pyramid.renderers import render
+from pyramid.renderers import render_to_response
 from pyramid.response import Response
 import datetime
 
@@ -27,8 +27,7 @@ def expenses(request):
                 }
             ]
         }
-        rendered_content = render(
+        return render_to_response(
             'core:templates/expenses.jinja2', context, request)
-        return Response(rendered_content)
 
     raise NotFound()
